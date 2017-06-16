@@ -2,5 +2,6 @@
 name = "yarns"
 version = "0.1.0"
 authors = ["astory <astory11@yahoo.com>"]
+description = "Simple lib for working with strings"
 
 [dependencies]
