@@ -4,7 +4,7 @@ use std::io::stdin;
 ///
 /// ```
 /// let hello = String::from("Hello");
-/// let first = yarns::head(hello);
+/// let first = yarns::head(&hello);
 /// //first = (String)"H"
 /// ```
 
@@ -30,8 +30,9 @@ pub fn substr(word: &String, start:usize, length:usize) -> String {
 /// ```
 /// let hello = String::from("Hello");
 /// let world = String::from("World");
-/// let hw = yarns.concat(&hello, &world);
+/// let hw = yarns::concat(&hello, &world);
 /// //hw = (String)"HelloWorld"
+/// ```
 
 pub fn concat(str1: &String, str2: &String) -> String {
     format!("{}{}", str1, str2)
@@ -42,8 +43,9 @@ pub fn concat(str1: &String, str2: &String) -> String {
 /// ```
 /// let hello = String::from("Hello");
 /// let ell = String::from("ell");
-/// let has_it = yarns.contains(&hello, &ell);
+/// let has_it = yarns::contains(&hello, &ell);
 /// //has_it = (bool) true
+/// ```
 
 pub fn contains(main: &String, sub: &String) -> bool {
     main[..].contains(&sub[..])
@@ -54,6 +56,22 @@ pub fn read() -> String {
     let mut temp = String::new();
     stdin().read_line(& mut temp).expect("failed to read user input");
     temp.trim().to_string()
+}
+
+///  Returns the length of the utf-8 representation of a string.
+///
+/// ```
+/// let hello = String::from("Hello");
+/// let length = yarns::len(&hello);
+/// //length = (i32) 5
+/// ```
+
+pub fn len(string: &String) -> i32 {
+    let mut count = 0;
+    for c in string.chars() {
+        count = count + 1;
+    }
+    count
 }
 
 #[cfg(test)]
@@ -81,5 +99,11 @@ mod tests {
         let val1 = String::from("hello");
         let val2 = String::from("hell");
         assert_eq!(true, ::contains(&val1, &val2));
+    }
+
+    #[test]
+    fn len_hello() {
+        let val = String::from("Hello");
+        assert_eq!(5, ::len(&val));
     }
 }
