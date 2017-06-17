@@ -1,3 +1,5 @@
+use std::io::stdin;
+
 /// Gets the first char of a string, and returns it as string.
 ///
 /// ```
@@ -45,6 +47,13 @@ pub fn concat(str1: &String, str2: &String) -> String {
 
 pub fn contains(main: &String, sub: &String) -> bool {
     main[..].contains(&sub[..])
+}
+
+/// Shortcut for simple binding of user input to an immutable String.
+pub fn read() -> String {
+    let mut temp = String::new();
+    stdin().read_line(& mut temp).expect("failed to read user input");
+    temp
 }
 
 #[cfg(test)]
