@@ -53,7 +53,7 @@ pub fn contains(main: &String, sub: &String) -> bool {
 pub fn read() -> String {
     let mut temp = String::new();
     stdin().read_line(& mut temp).expect("failed to read user input");
-    temp
+    temp.trim().to_string()
 }
 
 #[cfg(test)]

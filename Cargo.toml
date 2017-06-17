@@ -1,6 +1,6 @@
 [package]
 name = "yarns"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["astory <astory11@yahoo.com>"]
 description = "Simple lib for working with strings"
 license = "MIT"
