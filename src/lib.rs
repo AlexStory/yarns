@@ -20,7 +20,7 @@ pub fn head(word: &String) -> String {
 /// //sub = (String) "ell"
 /// ```
 
-pub fn substr(word: &String, start:usize, length:usize) -> String {
+pub fn substr(word: &String, start: usize, length: usize) -> String {
     let res: String = word.chars().skip(start).take(length).collect();
     res
 }
@@ -54,7 +54,7 @@ pub fn contains(main: &String, sub: &String) -> bool {
 /// Shortcut for simple binding of user input to an immutable String.
 pub fn read() -> String {
     let mut temp = String::new();
-    stdin().read_line(& mut temp).expect("failed to read user input");
+    stdin().read_line(&mut temp).unwrap();
     temp.trim().to_string()
 }
 
@@ -63,13 +63,9 @@ pub fn read() -> String {
 /// ```
 /// let hello = String::from("Hello");
 /// let length = yarns::len(&hello);
-/// //length = (i32) 5
+/// //length = 5
 /// ```
 
-pub fn len(string: &String) -> i32 {
-    let mut count = 0;
-    for c in string.chars() {
-        count = count + 1;
-    }
-    count
+pub fn len(string: &String) -> usize {
+    string.chars().count()
 }
